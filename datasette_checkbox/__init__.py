@@ -79,12 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Replace content of matching cells with checkboxes
-  const cells = table.querySelectorAll(
-    'td[class*="col-is_"][class*="type-int"],' +
-    'td[class*="col-should_"][class*="type-int"],' +
-    'td[class*="col-is_"][class*="type-none"],' +
-    'td[class*="col-should_"][class*="type-none"]'
-  );
+  const prefixes = ["is_", "has_", "should_"];
+  const types = ["type-int", "type-none"];
+  const selector = prefixes.flatMap(prefix =>
+    types.map(type => `td[class^="col-${prefix}"][class~="${type}"]`)
+  ).join(',');
+  const cells = table.querySelectorAll(selector);
   cells.forEach(cell => {
     if (cell.textContent === '0' || cell.textContent === '1' || cell.textContent.trim() === '') {
       const checkbox = document.createElement('input');

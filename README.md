@@ -17,7 +17,7 @@ datasette install datasette-checkbox
 ```
 ## Usage
 
-This plugin adds checkboxes to the table and row pages in Datasette for any column with a name that starts `is_*` or `should_*` and that is of type `integer`.
+This plugin adds checkboxes to the table and row pages in Datasette for any column with a name that starts `is_*` or `should_*` or `has_*` and that is of type `integer`.
 
 Toggling those checkboxes updates the underlying column to a `1` or a `0`.
 
