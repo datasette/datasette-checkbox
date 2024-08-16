@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'td[class*="col-is_"][class*="type-none"],' +
     'td[class*="col-should_"][class*="type-none"]'
   );
-  console.log(cells);
   cells.forEach(cell => {
     if (cell.textContent === '0' || cell.textContent === '1' || cell.textContent.trim() === '') {
       const checkbox = document.createElement('input');
