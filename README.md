@@ -5,7 +5,7 @@
 [![Tests](https://github.com/datasette/datasette-checkbox/actions/workflows/test.yml/badge.svg)](https://github.com/datasette/datasette-checkbox/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/datasette/datasette-checkbox/blob/main/LICENSE)
 
-Add interactive checkboxes to columns in Datasette
+Add interactive checkboxes to columns in Datasette. Requires Datasette 1.0 alpha or higher.
 
 ![Animated demo showing checkboxes in columns for is_done, should_be_deleted and is_happy - checking the checkboxes shows an updated message next to each one which then fades away.](https://raw.githubusercontent.com/datasette/datasette-checkbox/main/datasette-checkbox.gif)
 
