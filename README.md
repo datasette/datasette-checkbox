@@ -7,6 +7,8 @@
 
 Add interactive checkboxes to columns in Datasette
 
+![Animated demo showing checkboxes in columns for is_done, should_be_deleted and is_happy - checking the checkboxes shows an updated message next to each one which then fades away.](https://raw.githubusercontent.com/datasette/datasette-checkbox/main/datasette-checkbox.gif)
+
 ## Installation
 
 Install this plugin in the same environment as Datasette.
