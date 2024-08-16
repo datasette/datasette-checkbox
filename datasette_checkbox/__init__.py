@@ -40,7 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const isChecked = checkbox.checked ? 1 : 0;
     const row = cell.closest('tr');
     const pkCells = row.querySelectorAll('td.type-pk');
-    const rowPks = Array.from(pkCells).map(pkCell => pkCell.textContent).join(',');
+    const rowPks = Array.from(pkCells).map(pkCell => {
+      let copy = pkCell.cloneNode(true)
+      Array.from(copy.querySelectorAll('span')).forEach(
+        span => span.parentNode.removeChild(span)
+      );
+      return copy.textContent;
+    }).join(',');
 
     const currentPagePath = window.location.pathname
     const apiUrl = isRowPage ? `${currentPagePath}/-/update` : `${currentPagePath}/${rowPks}/-/update`;
