@@ -2,9 +2,15 @@ from datasette import hookimpl
 
 JS = """
 document.addEventListener('DOMContentLoaded', () => {
+  // Only runs on .row or .table pages
+  if (!document.body.classList.contains('row') && !document.body.classList.contains('table')) {
+    return;
+  }
+  const isRowPage = document.body.classList.contains('row');
   const table = document.querySelector('table.rows-and-columns');
-  if (!table) return;
-
+  if (!table) {
+    return;
+  }
   // Function to create and show the "Saved" message
   function showSavedMessage(cell) {
     let savedMessage = cell.querySelector('.saved-message');
@@ -36,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pkCells = row.querySelectorAll('td.type-pk');
     const rowPks = Array.from(pkCells).map(pkCell => pkCell.textContent).join(',');
 
-    const currentPagePath = window.location.pathname;
-    const apiUrl = `${currentPagePath}/${rowPks}/-/update`;
+    const currentPagePath = window.location.pathname
+    const apiUrl = isRowPage ? `${currentPagePath}/-/update` : `${currentPagePath}/${rowPks}/-/update`;
 
     const toUpdate = {};
     // Figure out column name from associated <th> element
