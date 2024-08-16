@@ -1,6 +1,6 @@
 [project]
 name = "datasette-checkbox"
-version = "0.1"
+version = "0.1a0"
 description = "Add interactive checkboxes to columns in Datasette"
 readme = "README.md"
 authors = [{name = "Simon Willison"}]
