@@ -1,6 +1,6 @@
 [project]
 name = "datasette-checkbox"
-version = "0.1a2"
+version = "0.1a3"
 description = "Add interactive checkboxes to columns in Datasette"
 readme = "README.md"
 authors = [{name = "Simon Willison"}]
@@ -11,7 +11,7 @@ classifiers=[
 ]
 requires-python = ">=3.8"
 dependencies = [
-    "datasette>=1.0a15"
+    "datasette==1.0a19"
 ]
 
 [project.urls]
