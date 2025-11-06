@@ -1,4 +1,5 @@
 from datasette import hookimpl
+from datasette.resources import TableResource
 
 JS = """
 document.addEventListener('DOMContentLoaded', () => {
@@ -116,8 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 def extra_body_script(database, table, request, datasette):
     async def inner():
         # Does user have permission to update rows in this table?
-        if table and await datasette.permission_allowed(
-            request.actor, "update-row", resource=(database, table)
+        if table and await datasette.allowed(
+            action="update-row",
+            resource=TableResource(database=database, table=table),
+            actor=request.actor,
         ):
             return JS
         else:
